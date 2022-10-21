@@ -15,7 +15,6 @@ const Students = ({ students }) => {
   };
 
   const { pathname } = useLocation();
-
   return (
     <>
       {students.length > 0 && (
@@ -43,11 +42,13 @@ const Students = ({ students }) => {
             </p>
           )}
         </ul>
-        <Pagination
-          questionPerPage={questionPerPage}
-          totalStudents={students.length}
-          onChange={changePageHandler}
-        />
+        {students.length > 0 && (
+          <Pagination
+            questionPerPage={questionPerPage}
+            totalStudents={students.length}
+            onChange={changePageHandler}
+          />
+        )}
       </div>
     </>
   );

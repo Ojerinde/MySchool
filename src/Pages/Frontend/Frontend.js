@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import ErrorModal from "../../Components/ErrorModal/ErrorModal";
+import Header from "../../Components/Header/Header";
 import LoadingSpinner from "../../Components/LoadingSpinner/LoadingSpinner";
 import StudentDetails from "../../Components/Students/StudentDetails";
 import Students from "../../Components/Students/Students";
@@ -37,6 +38,7 @@ const Frontend = () => {
       {!isLoading && error.hasError && (
         <ErrorModal message={error.message} onClose={closeModal} />
       )}
+      <Header />
       <Routes>
         <Route path="" element={<Students students={frontendStudents} />} />
         <Route

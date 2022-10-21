@@ -3,7 +3,6 @@ import { lazy, Suspense, useContext } from "react";
 
 import { ErrorBoundary } from "react-error-boundary";
 
-import Header from "./Components/Header/Header";
 import StudentDetails from "./Components/Students/StudentDetails";
 import Students from "./Components/Students/Students";
 import LoadingSpinner from "./Components/LoadingSpinner/LoadingSpinner";
@@ -39,7 +38,6 @@ const App = () => {
 
   return (
     <main className="app">
-      <Header />
       <section>
         <ErrorBoundary
           FallbackComponent={ErrorFallback}
@@ -57,7 +55,7 @@ const App = () => {
               {/* Nested Route - Method 2: Using <Outlet /> to render nested route components  */}
               <Route path="/backend" element={<Backend />}>
                 <Route
-                  path=""
+                  path="" 
                   element={<Students students={backendStudents} />}
                 />
                 <Route

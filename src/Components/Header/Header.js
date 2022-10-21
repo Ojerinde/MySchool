@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { ImHome } from "react-icons/im";
 
-const Header = () => {
+const Header = (props) => {
   const navigate = useNavigate();
   const goHomeHandler = () => {
     navigate("/");
@@ -19,7 +19,7 @@ const Header = () => {
               to="/frontend"
               className={({ isActive }) => (isActive ? "header__active" : "")}
             >
-             Frontend
+              Frontend
             </NavLink>
           </li>
           <li>

@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import ErrorModal from "../../Components/ErrorModal/ErrorModal";
+import Header from "../../Components/Header/Header";
 import LoadingSpinner from "../../Components/LoadingSpinner/LoadingSpinner";
 import useFetch from "../../hooks/useFetch";
 import { AppContext } from "../../store/AppContext";
@@ -32,6 +33,7 @@ const Cloud = () => {
       {!isLoading && error.hasError && (
         <ErrorModal message={error.message} onClose={closeModal} />
       )}
+      <Header />
       <Outlet />
     </>
   );

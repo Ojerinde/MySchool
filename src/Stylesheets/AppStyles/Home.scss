@@ -1,12 +1,62 @@
-.home {
+.section__home {
   width: 100%;
-  height: calc(100vh - 9rem);
+  height: 100vh;
   background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
     url(../../assets/altschool.jpg);
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  padding: 2rem;
+}
+.header__home {
+  padding: 3rem 2rem 6rem;
+
+  & nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & .logo {
+      flex-basis: 17%;
+      height: 7rem;
+      border-radius: 2rem;
+      box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.3);
+    }
+
+    & ul {
+      flex-basis: 40%;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+
+      & li {
+        padding: 1rem 1.8rem;
+        border-radius: 0.7rem;
+        border: 0.1rem solid rgba($primary-light-color, 0.7);
+        box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.5);
+        transition: all 0.3s;
+
+        &:hover {
+          transform: translateY(-0.3rem);
+          background-color: rgb(84, 79, 79);
+          color: $primary-color;
+        }
+
+        & a:link,
+        & a:visited {
+          text-decoration: none;
+          text-transform: capitalize;
+          color: $primary-dark-color;
+          font-size: 2.3rem;
+          font-weight: 500;
+          transition: all 0.3s;
+        }
+      }
+    }
+  }
+}
+
+.home {
   @include flex-center;
   flex-direction: column;
 

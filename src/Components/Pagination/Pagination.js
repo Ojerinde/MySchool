@@ -15,11 +15,13 @@ const Pagination = (props) => {
     setPage((page) => page - 1);
     props.onChange(page - 1);
   };
+
   const nextHandler = () => {
     if (page === total_pages) return;
     setPage((page) => page + 1);
     props.onChange(page + 1);
   };
+  
   return (
     <div className="pagination__card">
       <div className="pagination__icons--box">

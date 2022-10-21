@@ -70,7 +70,6 @@ const useFetch = () => {
 
         getData(transformedData);
       } catch (err) {
-        console.log(err);
         dispatchFn({
           type: "ERROR",
           value: { hasError: true, message: requestConfig.errorMessage },
