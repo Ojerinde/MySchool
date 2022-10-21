@@ -8,7 +8,7 @@ import { AppContext } from "../../store/AppContext";
 const Cloud = () => {
   const { isLoading, error, closeModal, fetchRequest } = useFetch();
 
-  const { addCloudStudents, cloudStudents } = useContext(AppContext);
+  const { addCloudStudents } = useContext(AppContext);
 
   useEffect(() => {
     const getData = (fetchedData) => {
@@ -31,9 +31,6 @@ const Cloud = () => {
     <>
       {!isLoading && error.hasError && (
         <ErrorModal message={error.message} onClose={closeModal} />
-      )}
-      {cloudStudents.length > 0 && (
-        <p className="track">Cloud Engineering Students</p>
       )}
       <Outlet />
     </>

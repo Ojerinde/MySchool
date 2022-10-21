@@ -1,37 +1,40 @@
 .pagination {
   &__card {
+    flex-basis: 18%;
     width: 80%;
     margin: 2rem auto 1rem auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    // display: flex;
+    // align-items: center;
+    // justify-content: space-between;
+    // flex-direction: column;
   }
   &__icons--box {
-    flex-basis: 15%;
+    width: 100%;
+    margin: 1rem 0;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
   }
   &__icons--prev,
   &__icons--next {
-    height: 2rem;
-    width: 2rem;
+    height: 4rem;
+    width: 4rem;
     fill: #344444;
     cursor: pointer;
+    margin: 0 auto;
 
     &:hover {
-      fill: #467575;
+      fill: $primary-color;
     }
   }
 
   &__icons--paragraph {
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 500;
-    color: rgba(33, 34, 34, 0.916);
+    color: $primary-dark-color;
   }
 
   &__buttons {
-    flex-basis: 80%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -39,21 +42,27 @@
 
     & button {
       text-align: center;
-      padding: 0.5rem 1rem;
-      margin: 0 0.3rem 0.3rem 0.3rem;
-      font-size: 1rem;
-      background-color: rgba(17, 41, 41, 0.748);
-      color: #8cf4f4;
+      padding: 0.7rem 1.2rem;
+      margin: 0.5rem;
+      font-size: 1.7rem;
+      font-weight: bold;
+      background-color: rgba(92, 91, 91, 0.92);
+      color: rgb(226, 221, 221);
       border-radius: 0.5rem;
-      border: 0.2rem solid transparent;
+      border: 0.25rem solid transparent;
+      cursor: pointer;
 
       &:hover {
-        border: 0.2rem solid rgb(43, 241, 241);
-        background-color: #467575;
+        border: 0.25rem solid $primary-dark-color;
+        background-color: white;
+        color: $primary-color;
       }
 
       &:focus {
-        border: 0.2rem solid rgb(36, 206, 206);
+        border: 0.25rem solid $primary-light-color;
+        background-color: rgba(255, 255, 255, 0.838);
+        color: $primary-light-color;
+
       }
     }
   }
@@ -61,6 +70,5 @@
 
 .not__allowed {
   cursor: not-allowed !important;
-  fill: rgb(167, 206, 213) !important;
+  fill: rgba(213, 208, 167, 0.745) !important;
 }
-

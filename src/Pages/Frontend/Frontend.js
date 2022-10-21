@@ -34,9 +34,6 @@ const Frontend = () => {
 
   return (
     <div>
-      {frontendStudents.length > 0 && (
-        <p className="track">Frontend Engineering Students</p>
-      )}
       {!isLoading && error.hasError && (
         <ErrorModal message={error.message} onClose={closeModal} />
       )}

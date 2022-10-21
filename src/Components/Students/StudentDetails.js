@@ -8,8 +8,7 @@ const StudentDetails = ({ students }) => {
   const { pathname } = useLocation();
   const lastIndexOfSlash = pathname.lastIndexOf("/");
 
-  const student = students.find((student) => student.id === params.id);
-  console.log(student)
+  const student = students.find((student) => student.username === params.id);
   //   Today's date
   //   const now = new Date();
   //   const options = {

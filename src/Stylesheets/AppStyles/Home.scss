@@ -42,7 +42,7 @@
       height: 100%;
       width: 0.4rem;
       background-color: rgba(199, 154, 18, 0.8);
-      transform: scaleY(0.2);
+      transform: scaleY(0);
       transform-origin: top;
       transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
         background-color 0.2s, color 0.2s;

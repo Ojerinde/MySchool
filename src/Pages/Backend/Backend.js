@@ -8,7 +8,7 @@ import { AppContext } from "../../store/AppContext";
 const Backend = () => {
   const { isLoading, error, closeModal, fetchRequest } = useFetch();
 
-  const { addBackendStudents, backendStudents } = useContext(AppContext);
+  const { addBackendStudents } = useContext(AppContext);
 
   useEffect(() => {
     const getData = (fetchedData) => {
@@ -32,9 +32,6 @@ const Backend = () => {
     <>
       {!isLoading && error.hasError && (
         <ErrorModal message={error.message} onClose={closeModal} />
-      )}
-      {backendStudents.length > 0 && (
-        <p className="track">Backend Engineering Students</p>
       )}
       <Outlet />
     </>
