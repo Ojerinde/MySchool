@@ -1,0 +1,16 @@
+.error__page {
+  width: 100%;
+  height: calc(100vh - 9rem);
+  @include flex-center;
+  flex-direction: column;
+  & p {
+    font-size: 4.5rem;
+    letter-spacing: .1rem;
+    color: $primary-dark-color;
+  }
+  & h2 {
+    font-size: 3rem;
+    color: $primary-color;
+    margin: 2rem 0;
+  }
+}

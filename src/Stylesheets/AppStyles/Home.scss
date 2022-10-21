@@ -1,0 +1,120 @@
+.home {
+  width: 100%;
+  height: calc(100vh - 9rem);
+  background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+    url(../../assets/altschool.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  padding: 2rem;
+  @include flex-center;
+  flex-direction: column;
+
+  & h1 {
+    font-size: 7rem;
+    font-weight: 700;
+    color: $primary-light-color;
+    letter-spacing: 0.15rem;
+  }
+  & h3 {
+    margin: 2rem 0 3rem 0;
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: $primary-color;
+    letter-spacing: 0.15rem;
+  }
+  & p {
+    padding: 1.2rem 1.5rem;
+    margin: 3rem 0 7rem;
+    color: rgb(186, 181, 181);
+    border-radius: 0.4rem;
+    font-size: 2rem;
+    border: 0.1rem solid $primary-color;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0.4rem;
+      background-color: rgba(199, 154, 18, 0.8);
+      transform: scaleY(0.2);
+      transform-origin: top;
+      transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+        background-color 0.2s, color 0.2s;
+    }
+
+    &:hover::after {
+      transform: scaleY(1);
+      background-color: rgba(199, 154, 18, 0.4);
+      color: white;
+      width: 100%;
+    }
+  }
+
+  & ul {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+    & li {
+      background-color: $primary-color;
+      padding: 2rem 4rem;
+      text-align: center;
+      border-radius: 0.5rem;
+      @include flex-center;
+      transition: all 0.5s;
+      position: relative;
+
+      & a:link,
+      & a:visited {
+        text-decoration: none;
+        color: rgb(48, 47, 47);
+        font-size: 2rem;
+        cursor: pointer;
+        margin-left: 1.5rem;
+      }
+
+      &:hover > .home__icon--1 {
+        animation: bounce linear infinite 3s;
+        fill: rgb(19, 108, 192);
+      }
+
+      &:hover > .home__icon--2 {
+        animation: bounce linear infinite 3s;
+        fill: rgb(10, 71, 9);
+      }
+
+      &:hover > .home__icon--3 {
+        animation: bounce linear infinite 3s;
+        fill: rgb(85, 95, 100);
+      }
+    }
+
+    & li:hover {
+      transform: translateY(-0.4rem);
+      box-shadow: 0 1rem 1rem rgba($primary-light-color, 0.2);
+    }
+  }
+
+  &__icon {
+    height: 4rem;
+    width: 4rem;
+    fill: $secondary-color;
+    transition: all 0.4s;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.15);
+  }
+}

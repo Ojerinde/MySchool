@@ -1,0 +1,22 @@
+.button {
+  font-size: 3rem;
+  width: fit-content;
+  padding: 1rem 1.5rem;
+  background-color: $primary-dark-color;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.4);
+  color: rgb(243, 235, 235);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &:hover {
+    background-color: $primary-light-color;
+    color: rgb(56, 54, 54);
+  }
+
+  &:active {
+    background-color: $primary-color;
+    transform: translateY(0.1rem);
+  }
+}

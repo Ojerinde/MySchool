@@ -1,0 +1,46 @@
+.app {
+  width: 100%;
+  height: 100%;
+
+  & section {
+    width: 100%;
+  }
+}
+
+
+.error__boundary {
+  width: 60vw;
+  height: calc(100vh - 9rem);
+  @include flex-center;
+  flex-direction: column;
+  margin: 0 auto;
+
+  & p {
+    font-size: 2.5rem;
+    color: $primary-light-color;
+    font-weight: 500;
+  }
+  & summary {
+    margin: 1.5rem;
+    color: $primary-color;
+    line-height: 1.5;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  &--button {
+    padding: 1rem 1.5rem;
+    border: 0.2rem solid $primary-color;
+    border-radius: 0.4rem;
+    color: $primary-color;
+    font-size: 1.6rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      color: $primary-light-color;
+      border: 0.2rem solid $primary-light-color;
+    }
+  }
+}

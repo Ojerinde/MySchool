@@ -1,0 +1,26 @@
+.student {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 0.1rem solid $primary-color;
+  border-radius: 0.5rem;
+  margin: 0.5rem 0;
+
+  &__detail {
+    & h2 {
+      font-size: 2rem;
+      letter-spacing: 0.1rem;
+      margin-bottom: 0.4rem;
+      color: rgb(45, 44, 44);
+    }
+    & h4 {
+      font-size: 1.4rem;
+      color: rgb(97, 96, 96);
+    }
+  }
+  &__button {
+    font-size: 1.6rem;
+  }
+}

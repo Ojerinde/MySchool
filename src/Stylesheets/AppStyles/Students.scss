@@ -1,0 +1,29 @@
+.students {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto;
+}
+.no__student {
+  height: 50vh;
+  font-size: 3rem;
+  color: rgb(69, 65, 65);
+  @include flex-center;
+  flex-direction: column;
+
+  & button {
+    font-size: 1.5rem;
+  }
+}
+
+.track {
+  font-size: 4rem;
+  margin: 3rem 0;
+  font-style: italic;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  letter-spacing: 0.3rem;
+  word-spacing: 2rem;
+  width: 100%;
+  text-align: center;
+  color: rgb(58, 57, 57);
+}
