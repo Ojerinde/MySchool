@@ -10,11 +10,14 @@ const Students = ({ students }) => {
   const [start, setStart] = useState(0);
   const end = start + questionPerPage;
 
+  // The function that will get the page number from the pagnation component
   const changePageHandler = (newPage) => {
     setStart((pag) => newPage * questionPerPage - questionPerPage);
   };
 
+  // Getting the track name from the url
   const { pathname } = useLocation();
+
   return (
     <>
       {students.length > 0 && (

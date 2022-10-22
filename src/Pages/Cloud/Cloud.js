@@ -7,15 +7,19 @@ import useFetch from "../../hooks/useFetch";
 import { AppContext } from "../../store/AppContext";
 
 const Cloud = () => {
+  // Using the created custom hook and destructuring at the same time
   const { isLoading, error, closeModal, fetchRequest } = useFetch();
 
+  // Getting data from the created context
   const { addCloudStudents } = useContext(AppContext);
 
   useEffect(() => {
+    // This is the function that will get the transfromed data from the useFetch hook. Then to the context
     const getData = (fetchedData) => {
       addCloudStudents(fetchedData);
     };
 
+    // Sending the request using the async function created in the useFecth hook
     fetchRequest(
       {
         url: "https://randomuser.me/api/1.4/?results=50&?nat=fr,gb,ie,nl,nz,us",
@@ -34,6 +38,7 @@ const Cloud = () => {
         <ErrorModal message={error.message} onClose={closeModal} />
       )}
       <Header />
+      {/* The enables the nested routes */}
       <Outlet />
     </>
   );

@@ -1,5 +1,6 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { FaCloudShowersHeavy, FaReact, FaNodeJs } from "react-icons/fa";
+
 import logo from "../../assets/logo.png";
 
 const Home = () => {
@@ -34,11 +35,12 @@ const Home = () => {
                 Cloud
               </NavLink>
             </li>
+  
           </ul>
         </nav>
       </header>
       <div className="home">
-        <h1>Welcome to Altschool Africa</h1>
+        <h1>Welcome to School of Engineering</h1>
         <h3>Kindly select any of the track below</h3>
         <p onClick={() => navigate("/users")}>See all staffs (Users)</p>
         <ul>

@@ -9,6 +9,7 @@ const UsersHome = ({ students }) => {
   const [start, setStart] = useState(0);
   const end = start + staffPerPage;
 
+  // The function that will get the page number from the pagination component.
   const changePageHandler = (newPage) => {
     setStart((pag) => newPage * staffPerPage - staffPerPage);
   };

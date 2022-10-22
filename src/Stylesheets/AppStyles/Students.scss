@@ -1,17 +1,27 @@
 .student__box {
-  width: 85%;
+  width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   margin: 0 auto;
 }
+@media only screen and (max-width: $bp--small) {
+  .student__box {
+    flex-direction: column;
+  }
+}
 
 .students {
   flex-basis: 70%;
-  width: 50%;
   display: flex;
   flex-direction: column;
   margin: 2rem auto;
+}
+
+@media only screen and (max-width: $bp--small) {
+  .students {
+    width: 100%;
+  }
 }
 .no__student {
   height: 50vh;

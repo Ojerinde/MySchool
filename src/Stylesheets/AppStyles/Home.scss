@@ -7,6 +7,13 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
+
+@media only screen and (max-width: $bp--small) {
+  .section__home {
+    height: fit-content;
+  }
+}
+
 .header__home {
   padding: 3rem 2rem 6rem;
 
@@ -21,6 +28,12 @@
       height: 7rem;
       border-radius: 2rem;
       box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.3);
+    }
+
+    @media only screen and (max-width: $bp--medium) {
+      & .logo {
+        flex-basis: 15%;
+      }
     }
 
     & ul {
@@ -53,25 +66,53 @@
         }
       }
     }
+
+    @media only screen and (max-width: $bp--medium) {
+      & ul {
+        flex-basis: 50%;
+      }
+    }
   }
 }
+@media only screen and (max-width: $bp--small) {
+  .header__home {
+    & nav {
+      flex-wrap: wrap;
+      justify-content: space-around;
 
+      & ul {
+        flex-basis: 100%;
+        margin-top: 2rem;
+        justify-content: space-around;
+      }
+    }
+  }
+}
 .home {
   @include flex-center;
   flex-direction: column;
 
   & h1 {
-    font-size: 7rem;
+    font-size: 6rem;
     font-weight: 700;
     color: $primary-light-color;
     letter-spacing: 0.15rem;
+    text-align: center;
   }
+
+  @media only screen and (max-width: $bp--medium) {
+    & h1 {
+      font-size: 4rem;
+    }
+  }
+
   & h3 {
     margin: 2rem 0 3rem 0;
     font-size: 2.5rem;
     font-weight: 500;
     color: $primary-color;
     letter-spacing: 0.15rem;
+    text-align: center;
   }
   & p {
     padding: 1.2rem 1.5rem;
@@ -152,11 +193,36 @@
     }
   }
 
+  @media only screen and (max-width: $bp--small) {
+    & ul {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      & li {
+        width: fit-content;
+        margin-bottom: 6rem;
+        padding: 4rem 6rem;
+
+        & a:link,
+        & a:visited {
+          font-size: 2.5rem;
+        }
+      }
+    }
+  }
   &__icon {
     height: 4rem;
     width: 4rem;
     fill: $secondary-color;
     transition: all 0.4s;
+  }
+
+  @media only screen and (max-width: $bp--small) {
+    &__icon {
+      height: 6rem;
+      width: 6rem;
+    }
   }
 }
 

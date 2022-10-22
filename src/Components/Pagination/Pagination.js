@@ -20,7 +20,7 @@ const Pagination = (props) => {
     setPage((page) => page + 1);
     props.onChange(page + 1);
   };
-  
+
   return (
     <div className="pagination__card">
       <div className="pagination__icons--box">
@@ -48,7 +48,7 @@ const Pagination = (props) => {
                 setPage((page) => each);
               }}
             >
-              {each}
+              {`${each}`.padStart(2, '0')}
             </button>
           )
         )}

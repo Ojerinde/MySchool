@@ -2,7 +2,6 @@ import { useState } from "react";
 import { ImPrevious, ImNext } from "react-icons/im";
 
 const UserPagination = (props) => {
-    console.log(props)
   const userPerPage = props.staffPerPage;
   const totalStaffs = props.totalStudents;
 
@@ -10,36 +9,40 @@ const UserPagination = (props) => {
 
   const [page, setPage] = useState(1);
 
+  // A function to decrease page
   const prevHandler = () => {
     if (page === 1) return;
     setPage((page) => page - 1);
+    // Sending page number to the parent component where the pagination components is used
     props.onChange(page - 1);
   };
 
+  // A function to increase page
   const nextHandler = () => {
     if (page === total_pages) return;
     setPage((page) => page + 1);
+    // Sending page number to the parent component where the pagination components is used
     props.onChange(page + 1);
   };
 
   return (
-    <div className="pagination__card">
-      <div className="pagination__icons--box">
+    <div className="user-pagination__card">
+      <div className="user-pagination__icons--box">
         <ImPrevious
           onClick={prevHandler}
-          className={`pagination__icons--prev ${
+          className={`user-pagination__icons--prev ${
             page === 1 ? " not__allowed" : ""
           }`}
         />
-        <p className="pagination__icons--paragraph">{page}</p>
+        <p className="user-pagination__icons--paragraph">{page}</p>
         <ImNext
           onClick={nextHandler}
-          className={`pagination__icons--next ${
+          className={`user-pagination__icons--next ${
             page === total_pages || total_pages < 1 ? " not__allowed" : ""
           }`}
         />
       </div>
-      <div className="pagination__buttons">
+      <div className="user-pagination__buttons">
         {Array.from({ length: total_pages }, (_, index) => index + 1).map(
           (each) => (
             <button

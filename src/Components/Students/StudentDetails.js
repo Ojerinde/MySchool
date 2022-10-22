@@ -9,18 +9,8 @@ const StudentDetails = ({ students }) => {
   const lastIndexOfSlash = pathname.lastIndexOf("/");
 
   const student = students.find((student) => student.username === params.id);
-  //   Today's date
-  //   const now = new Date();
-  //   const options = {
-  //     weekday: "long",
-  //     month: "long",
-  //     year: "numeric",
-  //   };
-  //   const locale = navigator.language;
-  //   const date = new Intl.DateTimeFormat(locale, options).format(now);
 
   //   Creating Student date of birth
-
   const dob = new Date(`${student?.date}`);
 
   //   Getting the day, month and year from the created date of birth
@@ -31,6 +21,7 @@ const StudentDetails = ({ students }) => {
   //   Formatting the D.O.B
   const formattedDob = `${day}/${month}/${year}`;
 
+  // A function to navigate back
   const goBackHandler = () => {
     navigate(`${pathname.slice(0, lastIndexOfSlash)}`);
   };

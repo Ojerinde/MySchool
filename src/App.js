@@ -6,27 +6,28 @@ import { ErrorBoundary } from "react-error-boundary";
 import StudentDetails from "./Components/Students/StudentDetails";
 import Students from "./Components/Students/Students";
 import LoadingSpinner from "./Components/LoadingSpinner/LoadingSpinner";
-import { AppContext } from "./store/AppContext";
-import Users from "./Pages/Users/Users";
 
-// Dynamic imports
+import { AppContext } from "./store/AppContext";
+
+// Importing all pages dynamically
 const Home = lazy(() => import("./Pages/Home/Home"));
 const Frontend = lazy(() => import("./Pages/Frontend/Frontend"));
 const Backend = lazy(() => import("./Pages/Backend/Backend"));
 const Cloud = lazy(() => import("./Pages/Cloud/Cloud"));
 const ErrorPage = lazy(() => import("./Pages/ErrorPage/ErrorPage"));
+const Users = lazy(() => import("./Pages/Users/Users"));
 
-// Error fallback component
+// This is the function that will be called when the error boundary catches an error.
 const ErrorFallback = (props) => {
   return (
     <div role="alert" className="error__boundary">
-      <p>Something went wrong!</p>
+      <p>Oops! An error occurred</p>
       <summary>{props.error.message}</summary>
       <button
         className="error__boundary--button"
         onClick={props.resetErrorBoundary}
       >
-        Try again
+        Restart app
       </button>
     </div>
   );
@@ -34,6 +35,8 @@ const ErrorFallback = (props) => {
 
 const App = () => {
   const navigate = useNavigate();
+
+  // Getting data from the created context.
   const { backendStudents, cloudStudents } = useContext(AppContext);
 
   return (
@@ -41,11 +44,12 @@ const App = () => {
       <section>
         <ErrorBoundary
           FallbackComponent={ErrorFallback}
+          // The function trigerred by the button in the ErrorFallback function
           onReset={() => {
             navigate("/");
           }}
         >
-          <Suspense fallback={<LoadingSpinner />}>
+          <Suspense fallback={<LoadingSpinner />}> 
             <Routes>
               <Route path="/" element={<Home />} />
 

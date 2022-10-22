@@ -11,15 +11,19 @@ import { AppContext } from "../../store/AppContext";
 import ErrorPage from "../ErrorPage/ErrorPage";
 
 const Frontend = () => {
+  // Using the created custom hook and destructuring at the same time
   const { isLoading, error, closeModal, fetchRequest } = useFetch();
 
+  // Getting data from the created context
   const { frontendStudents, addFrontendStudents } = useContext(AppContext);
 
   useEffect(() => {
+    // This is the function that will get the transfromed data from the useFetch hook. Then to the context
     const getData = (fetchedData) => {
       addFrontendStudents(fetchedData);
     };
-
+    
+    // Sending the request using the async function created in the useFecth hook
     fetchRequest(
       {
         url: "https://randomuser.me/api/1.4/?results=50&?nat=de,dk,es,fi",
@@ -29,6 +33,7 @@ const Frontend = () => {
     );
   }, [fetchRequest, addFrontendStudents]);
 
+  // API loading state
   if (isLoading) {
     return <LoadingSpinner />;
   }

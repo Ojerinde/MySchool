@@ -38,6 +38,14 @@ const Header = (props) => {
               Cloud
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/users"
+              className={({ isActive }) => (isActive ? "header__active" : "")}
+            >
+              Staffs
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </header>

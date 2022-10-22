@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+import Button from "../../Components/Button/Button";
+
 const User = (student) => {
+  const navigate = useNavigate();
   return (
     <div className="user__card">
       <div className="user__box user__box--front">
@@ -24,7 +28,11 @@ const User = (student) => {
           </div>
         </div>
       </div>
-      <div className="user__box user__box--back">Back</div>
+      <div className="user__box user__box--back">
+        <Button onClick={() => navigate(`/users/${student.username}`)}>
+          See more
+        </Button>
+      </div>
     </div>
   );
 };

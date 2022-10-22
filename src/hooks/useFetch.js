@@ -1,5 +1,6 @@
 import { useCallback, useReducer } from "react";
 
+// The state initial state
 const initialState = {
   isLoding: false,
   error: {
@@ -8,6 +9,7 @@ const initialState = {
   },
 };
 
+// The function triggered when the dispatchFn fro the useReducer is called
 const fetchReducer = (state, action) => {
   if (action.type === "LOADING") {
     const updatedState = { ...state, isLoading: action.value };
@@ -23,14 +25,16 @@ const fetchReducer = (state, action) => {
   return state;
 };
 
+// Cretaing a custom hook
 const useFetch = () => {
   const [fetchState, dispatchFn] = useReducer(fetchReducer, initialState);
 
-  // A fuction to close the error modal
+  // A fuction to close the error modal.
   const closeModal = () => {
     dispatchFn({ type: "ERROR", value: { hasError: false, message: "" } });
   };
 
+  // The function to send the fetch request. is it expecting a configuration object as well as a function that will get the request transformed data
   const fetchRequest = useCallback(
     async (requestConfig, getData = () => {}) => {
       dispatchFn({ type: "LOADING", value: true });
@@ -46,8 +50,10 @@ const useFetch = () => {
           throw new Error(`${requestConfig.errorMessage}`);
         }
 
+        // Retrieving the body data
         const responseBody = await response.json();
 
+        // Formatting the body data to what I need
         const transformedData = [];
         for (const student of responseBody.results) {
           transformedData.push({
@@ -67,7 +73,7 @@ const useFetch = () => {
             state: student.location.state,
           });
         }
-
+        // Sending the data to the component that send the request
         getData(transformedData);
       } catch (err) {
         dispatchFn({
@@ -80,7 +86,9 @@ const useFetch = () => {
     []
   );
 
+  // Destructuring the sate
   const { isLoading, error } = fetchState;
+  // Data that can be gotten from this custom hook
   return { isLoading, error, closeModal, fetchRequest };
 };
 export default useFetch;

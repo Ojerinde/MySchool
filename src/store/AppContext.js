@@ -1,7 +1,6 @@
 import React, { useCallback, useReducer } from "react";
 
-// Creating a context
-export const AppContext = React.createContext({
+const initialState = {
   frontendStudents: [],
   backendStudents: [],
   cloudStudents: [],
@@ -10,15 +9,12 @@ export const AppContext = React.createContext({
   addBackendStudents: (userData) => {},
   addCloudStudents: (userData) => {},
   addStaffs: (userData) => {},
-});
-
-const initialState = {
-  frontendStudents: [],
-  backendStudents: [],
-  cloudStudents: [],
-  staffs: [],
 };
 
+// Creating a context and passing in initialState for VSCode autocomopletion
+export const AppContext = React.createContext(initialState);
+
+// This is the function that will be triggered whenever the dispatch function is called.
 const contextReducer = (state, action) => {
   switch (action.type) {
     case "ADD_FRONTEND_STUDENT":
@@ -46,10 +42,12 @@ const contextReducer = (state, action) => {
   }
 };
 
-// Creating a context provider
+// Creating the context provider.
 const AppContextProvider = (props) => {
+  // usereducer for state management
   const [contextState, dispatchFn] = useReducer(contextReducer, initialState);
 
+  // These are the function that can be accessed in any component to update state. useCallback is to ensure that React Memoized them and they are recreated.
   const addFrontendStudents = useCallback((students) => {
     dispatchFn({ type: "ADD_FRONTEND_STUDENT", payload: students });
   }, []);

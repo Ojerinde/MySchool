@@ -1,8 +1,7 @@
 .pagination {
   &__card {
-    flex-basis: 20%;
+    flex-basis: 22%;
     padding: 1rem;
-    width: 80%;
     margin: 2rem auto 1rem auto;
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
   }
@@ -11,7 +10,7 @@
     margin: 1rem 0;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
   }
   &__icons--prev,
   &__icons--next {
@@ -35,7 +34,7 @@
   &__buttons {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-around;
     flex-wrap: wrap;
 
     & button {
@@ -68,4 +67,33 @@
 .not__allowed {
   cursor: not-allowed !important;
   fill: rgba(213, 208, 167, 0.745) !important;
+}
+
+@media only screen and (max-width: $bp--small) {
+  .pagination {
+    &__card {
+      width: 95%;
+      margin: 2rem auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &__icons--box {
+      flex-basis: 25%;
+    }
+    &__icons--prev,
+    &__icons--next {
+      height: 3rem;
+      width: 3rem;
+    }
+
+    &__icons--paragraph {
+      font-size: 2.5rem;
+    }
+
+    &__buttons {
+      flex-basis: 70%;
+      justify-content: flex-start;
+    }
+  }
 }

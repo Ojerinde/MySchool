@@ -49,6 +49,7 @@
   }
 
   &--back {
+    @include flex-center;
     transform: rotateY(180deg);
     color: white;
     background: linear-gradient(
