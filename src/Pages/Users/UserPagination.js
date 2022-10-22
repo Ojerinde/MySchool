@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { ImPrevious, ImNext } from "react-icons/im";
 
-const Pagination = (props) => {
-  const questionPerPage = props.questionPerPage;
-  const totalQuestions = props.totalStudents;
+const UserPagination = (props) => {
+    console.log(props)
+  const userPerPage = props.staffPerPage;
+  const totalStaffs = props.totalStudents;
 
-  const total_pages = Math.ceil(totalQuestions / questionPerPage);
+  const total_pages = Math.ceil(totalStaffs / userPerPage);
 
   const [page, setPage] = useState(1);
 
@@ -20,7 +21,7 @@ const Pagination = (props) => {
     setPage((page) => page + 1);
     props.onChange(page + 1);
   };
-  
+
   return (
     <div className="pagination__card">
       <div className="pagination__icons--box">
@@ -56,4 +57,4 @@ const Pagination = (props) => {
     </div>
   );
 };
-export default Pagination;
+export default UserPagination;

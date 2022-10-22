@@ -49,19 +49,21 @@ const App = () => {
             <Routes>
               <Route path="/" element={<Home />} />
 
-              {/* Nested Route - Method 1: This method enables us to have Routes and Route in the <Frontend /> component */}
+              {/* Nested Route - Method 1: This method enables us to have Routes and Route in the <Users /> and <Frontend /> component */}
+              <Route path="/users/*" element={<Users />} />
               <Route path="/frontend/*" element={<Frontend />} />
 
               {/* Nested Route - Method 2: Using <Outlet /> to render nested route components  */}
               <Route path="/backend" element={<Backend />}>
                 <Route
-                  path="" 
+                  path=""
                   element={<Students students={backendStudents} />}
                 />
                 <Route
                   path=":id"
                   element={<StudentDetails students={backendStudents} />}
                 />
+                <Route path="*" element={<ErrorPage />} />
               </Route>
               <Route path="/cloud" element={<Cloud />}>
                 <Route
@@ -73,9 +75,8 @@ const App = () => {
                   exact
                   element={<StudentDetails students={cloudStudents} />}
                 />
+                <Route path="*" element={<ErrorPage />} />
               </Route>
-
-              <Route path="/users" element={<Users />} />
 
               {/* If none of the above route is matched, the below will be matched  */}
               <Route path="*" element={<ErrorPage />} />
