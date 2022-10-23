@@ -44,7 +44,7 @@ By default, the frontend will run on `localhost:3000`.
 
 
 ## Deployment
-The app is deployed on Netlify
+The app is deployed on [Netlify]("https://myschool-joe.netlify.app/")
 
 ## Author
 Joel Ojerinde
