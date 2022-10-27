@@ -6,7 +6,7 @@
 In this project I implemented, React-router, Nested routes, 404 page, Error boundary, and Client-side pagination. I used randomuser.me API as my backend as instructed in the assignment.
 
 ## Authentication
-The application does not make use of authentication system
+The application does not make use of any authentication system.
 
 ## Main Files: Project Structure
 

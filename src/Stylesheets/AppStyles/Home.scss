@@ -13,6 +13,11 @@
     height: fit-content;
   }
 }
+@media only screen and (max-width: $bp--smallest) {
+  .section__home {
+    padding: 0 1rem;
+  }
+}
 
 .header__home {
   padding: 3rem 2rem 6rem;

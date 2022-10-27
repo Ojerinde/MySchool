@@ -86,7 +86,7 @@ const useFetch = () => {
     []
   );
 
-  // Destructuring the sate
+  // Destructuring the state
   const { isLoading, error } = fetchState;
   // Data that can be gotten from this custom hook
   return { isLoading, error, closeModal, fetchRequest };

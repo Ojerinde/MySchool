@@ -1,6 +1,6 @@
 .user__card {
   width: 40rem;
-  height: 40vh;
+  height: 38vh;
   margin-bottom: 2rem;
   perspective: 150rem;
   -moz-perspective: 150rem;
@@ -20,15 +20,20 @@
     margin: 0 1rem 2rem;
   }
 }
+@media only screen and (max-width: $bp--small) {
+  .user__card {
+    width: 45rem;
+  }
+}
 
 @media only screen and (max-width: $bp--smallest) {
   .user__card {
     width: 50rem;
+    height: 33vh;
   }
 }
 
 .user__box {
-  // width: 35.5rem;
   height: 100%;
   padding: 1rem;
   position: absolute;
@@ -92,14 +97,44 @@
   }
 }
 
-@media only screen and (max-width: $bp--smallest) {
+@media only screen and (max-width: $bp--small) {
   .user__detail {
+    &-box {
+      & div:not(:last-child) {
+        margin-bottom: 1.5rem;
+      }
+    }
     &-card {
       & h4 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
       }
       & h2 {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $bp--smallest) {
+  .user__box {
+    & figure {
+      width: 40%;
+    }
+  }
+
+  .user__detail {
+    &-box {
+      flex-basis: 55%;
+      & div:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
+    &-card {
+      & h4 {
+        font-size: 1.6rem;
+      }
+      & h2 {
+        font-size: 1.8rem;
       }
     }
   }
