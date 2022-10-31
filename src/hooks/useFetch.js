@@ -54,9 +54,8 @@ const useFetch = () => {
         const responseBody = await response.json();
 
         // Formatting the body data to what I need
-        const transformedData = [];
-        for (const student of responseBody.results) {
-          transformedData.push({
+        const modifiedData = responseBody.results.map((student) => {
+          return {
             id: student.id.value,
             name: `${student.name.first} ${student.name.last}`,
             location: `${student.location.street.name} ${student.location.street.number}`,
@@ -71,10 +70,11 @@ const useFetch = () => {
             country: student.location.country,
             city: student.location.city,
             state: student.location.state,
-          });
-        }
+          };
+        });
+
         // Sending the data to the component that send the request
-        getData(transformedData);
+        getData(modifiedData);
       } catch (err) {
         dispatchFn({
           type: "ERROR",
